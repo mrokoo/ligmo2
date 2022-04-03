@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply h-full bg-base-200 overflow-hidden;
+  }
+
+  html {
+    @apply h-screen;
+  }
+
+  #app {
+    @apply h-full overflow-hidden relative;
+  }
+
+  /*滚动条样式*/
+  .appmain::-webkit-scrollbar {
+    width: 4px;
+    /*height: 4px;*/
+  }
+  .appmain::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .appmain::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+
+}
+
+@layer utilities {
+  .fixin {
+    @apply transition-all translate-y-full opacity-0;
+  }
+
+  .fixout {
+    @apply transition-all -translate-y-2 opacity-100;
+  }
+}
