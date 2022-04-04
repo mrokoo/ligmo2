@@ -2,7 +2,7 @@
   <div class="tabbar bg-transparent flex justify-center items-center w-full">
     <ul class="menu menu-horizontal bg-base-200 rounded-full shadow-lg">
       <li>
-        <a>
+        <a @click="this.$router.push('home')">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -20,7 +20,7 @@
         </a>
       </li>
       <li>
-        <a>
+        <a @click="this.$router.push('kanban')">
           <svg
             t="1648297245440"
             class="w-5 h-5"
@@ -36,7 +36,7 @@
         </a>
       </li>
       <li>
-        <a>
+        <a @click="this.$router.push('statistics')">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -55,7 +55,7 @@
       </li>
 
       <li>
-        <a>
+        <a @click="this.$router.push('setting')">
           <svg
             class="w-6 h-6"
             fill="currentColor"

@@ -15,7 +15,7 @@
       >
         <!-- Sidebar content here -->
         <li class="bordered">
-          <a
+          <a @click="this.$router.push('home')"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -34,7 +34,7 @@
           </a>
         </li>
         <li>
-          <a>
+          <a @click="this.$router.push('kanban')">
           <svg
             t="1648297245440"
             class="w-5 h-5"
@@ -52,7 +52,7 @@
         </li>
 
         <li>
-          <a>
+          <a @click="this.$router.push('statistics')">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5"
@@ -71,7 +71,7 @@
           </a>
         </li>
         <li>
-          <a>
+          <a @click="this.$router.push('setting')">
             <svg
               class="w-6 h-6"
               fill="currentColor"
@@ -107,10 +107,33 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import TheAppHeader from "@/components/TheAppHeader.vue";
 import TheHorizontalMenu from "@/components/TheHorizontalMenu.vue";
 import TheAppMain from "@/components/TheAppMain.vue";
+
+export default {
+  component: 'TheApp',
+  components: {
+    TheAppHeader,
+    TheHorizontalMenu,
+    TheAppMain,
+  },
+  data() {
+    return {
+      message: '1',
+    }
+  },
+  methods: {
+    typeRoute() {
+      console.log(this.$route.params)
+    }
+  },
+
+  mounted() {
+    this.typeRoute()
+  }
+}
 </script>
 
 <style scoped></style>

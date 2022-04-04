@@ -108,18 +108,23 @@
         >✕</label
       >
       <h3 class="text-lg font-bold text-center">Login</h3>
-      <div class="login flex flex-col items-center flex-1 justify-around">
+      <form-control
+        class="login flex flex-col items-center flex-1 justify-around"
+        ref="rulefrom"
+      >
         <input
           type="text"
           placeholder="Username"
           class="input input-bordered w-full max-w-xs mt-4"
+          v-model="ruleForm.username"
         />
         <input
           type="password"
           placeholder="Password"
           class="input input-bordered w-full max-w-xs mt-4"
+          v-model="ruleForm.paaword"
         />
-        <button class="btn btn-block mt-4 text-sm max-w-xs">
+        <button class="btn btn-block mt-4 text-sm max-w-xs" @click="submitForm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -145,14 +150,53 @@
             />
             <span class="label-text ml-2">Remember me</span>
           </label>
-          <a class="link link-hover label-text px-1 py-2 opacity-40 hover:opacity-100">Forgotten password</a>
+          <a
+            class="link link-hover label-text px-1 py-2 opacity-40 hover:opacity-100"
+            >Forgotten password</a
+          >
         </div>
-      </div>
+      </form-control>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script>
+import axios from "axios";
+export default {
+  component: "welcome",
+  data() {
+    return {
+      ruleForm: {
+        username: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    submitForm(formName) {
+      // axios
+      //   .post("/login", this.ruleForm)
+      //   .then((res) => {
+      //     console.log(res);
+      //     this.$router.push('/12')
+      //   })
+      //   .catch((err) => {
+      //     console.log(this)
+      //     console.log(this.$root)
+      //     this.$root.$router.push('/12')
+      //     alert(err);
+      //   });
+
+      console.log(this.$route);
+      this.$router.push("/123/");
+      
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    },
+  },
+};
+</script>
 
 <style scoped>
 .hero {
