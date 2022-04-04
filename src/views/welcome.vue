@@ -122,7 +122,7 @@
           type="password"
           placeholder="Password"
           class="input input-bordered w-full max-w-xs mt-4"
-          v-model="ruleForm.paaword"
+          v-model="ruleForm.password"
         />
         <button class="btn btn-block mt-4 text-sm max-w-xs" @click="submitForm">
           <svg
@@ -161,35 +161,35 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   component: "welcome",
   data() {
     return {
       ruleForm: {
-        username: "",
-        password: "",
+        username: "1",
+        password: "123456",
       },
     };
   },
   methods: {
-    submitForm(formName) {
-      // axios
-      //   .post("/login", this.ruleForm)
-      //   .then((res) => {
-      //     console.log(res);
-      //     this.$router.push('/12')
-      //   })
-      //   .catch((err) => {
-      //     console.log(this)
-      //     console.log(this.$root)
-      //     this.$root.$router.push('/12')
-      //     alert(err);
-      //   });
+    // 账号与密码验证,
 
-      console.log(this.$route);
-      this.$router.push("/123/");
-      
+    submitForm(formName) {
+      const that = this;
+      this.$axios
+        .post("/login", this.ruleForm)
+        .then((res) => {
+          console.log(res);
+          if (res.data.token) {
+            // localStorage.clear();
+            localStorage.setItem("token", res.data.token);
+            // alert("登入成功");
+            that.$router.push(`/${that.ruleForm.username}/home`);
+          }
+        })
+        .catch((err) => {
+          throw err;
+        });
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();

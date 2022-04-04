@@ -44,4 +44,24 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  //打印来的路径和去的路径
+  console.log(to.path + "  from:" + from.fullPath)
+  //对于登录页面不拦截
+  if (to.path === '/') {
+    // 接下来的函数
+    next();
+  } else {
+    //用户访问认证后页面时 必须校验用户信息是否存在，不存在去登陆页
+    const token = localStorage.getItem('token')
+    // console.log(localStorage.getItem('token'))
+    if (token) {
+      next()
+    } else {
+      next('/')
+    }
+  }
+});
+
 export default router

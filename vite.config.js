@@ -9,9 +9,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  // server: {
-  //   host: '192.168.1.103' // 在手机客户端访问
-  // }
+  server: {
+    host: '192.168.54.127' // 在手机客户端访问
+  }
   // base:'./', // 添加这个属性
   // assetsDir: 'assets',
 })

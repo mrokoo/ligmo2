@@ -108,6 +108,7 @@ export default {
     cancelChange(e) {
       this.isCheck = false;
     },
+    
   },
 };
 </script>
