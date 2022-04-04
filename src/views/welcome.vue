@@ -4,19 +4,19 @@
       <div class="navbar-start md:hidden">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost btn-square">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="inline-block w-5 h-5 stroke-current"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block w-5 h-5 stroke-current"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
           </label>
           <ul
             tabindex="0"
@@ -83,13 +83,70 @@
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
-        <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-        <p class="mb-5">
+        <h1 class="mb-5 text-4xl md:text-5xl font-bold">Hello there</h1>
+        <p class="mb-5 text-sm md:text-base">
           The past is our definition. We may strive, with good reason, to escape
           it or what is bad in it, but we will escape it only by adding things
           better to it.
         </p>
-        <button class="btn btn-primary">Get Started</button>
+        <label for="loginModal" class="btn btn-primary modal-button"
+          >Get Started</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- The button to open modal -->
+
+  <!-- Put this part before </body> tag -->
+  <input type="checkbox" id="loginModal" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box md:h-2/5 relative flex flex-col">
+      <label
+        for="loginModal"
+        class="btn btn-sm btn-circle absolute right-2 top-2"
+        >✕</label
+      >
+      <h3 class="text-lg font-bold text-center">Login</h3>
+      <div class="login flex flex-col items-center flex-1 justify-around">
+        <input
+          type="text"
+          placeholder="Username"
+          class="input input-bordered w-full max-w-xs mt-4"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          class="input input-bordered w-full max-w-xs mt-4"
+        />
+        <button class="btn btn-block mt-4 text-sm max-w-xs">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+            />
+          </svg>
+          Login
+        </button>
+        <div class="flex justify-between max-w-xs">
+          <label class="label cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              checked="checked"
+              class="checkbox checkbox-xs"
+            />
+            <span class="label-text ml-2">Remember me</span>
+          </label>
+          <a class="link link-hover label-text px-1 py-2 opacity-40 hover:opacity-100">Forgotten password</a>
+        </div>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ export default defineConfig({
     }
   },
   // server: {
-  //   host: '192.168.1.101' // 在手机客户端访问
+  //   host: '192.168.1.103' // 在手机客户端访问
   // }
   // base:'./', // 添加这个属性
   // assetsDir: 'assets',

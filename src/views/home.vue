@@ -3,10 +3,12 @@
   <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
     <Card :cardItems="cardItems" @changeCardItem="changeCardItem" />
   </div>
+  <AddModal @addCardItem="addItem" />
 </template>
 
 <script setup>
 import _ from "lodash";
+import AddModal from "../components/AddModal.vue";
 import Stats from "../components/Stats.vue";
 import Card from "../components/Card.vue";
 import { reactive } from "@vue/reactivity";
@@ -51,13 +53,17 @@ const cardItems = reactive([
 function changeCardItem(pararms) {
   // console.log(pararms)
   let index = _.findIndex(cardItems, (o) => {
-    return o.id == pararms.id
-  })
+    return o.id == pararms.id;
+  });
 
-  cardItems[index].id = pararms.id
-  cardItems[index].title = pararms.title
-  cardItems[index].content = pararms.content
-  cardItems[index].isNew = pararms.isNew
-  cardItems[index].tags = pararms.tags
+  cardItems[index].id = pararms.id;
+  cardItems[index].title = pararms.title;
+  cardItems[index].content = pararms.content;
+  cardItems[index].isNew = pararms.isNew;
+  cardItems[index].tags = pararms.tags;
 }
+
+const addItem = (pararms) => {
+  cardItems.push(pararms);
+};
 </script>

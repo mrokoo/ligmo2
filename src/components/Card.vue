@@ -3,13 +3,12 @@
     class="card w-full bg-base-100 border cursor-pointer swiper"
     v-for="item in cardItems"
     :key="item.id"
-    @dblclick="changeCard"
+    @click="changeCard"
     :cardid="item.id"
   >
     <div class="card-body">
       <h2 class="card-title">
         {{ item.title }}
-        "{{ item.id }}"
         <div class="badge badge-secondary" v-show="item.isNew">NEW</div>
       </h2>
       <p>{{ item.content }}</p>
@@ -56,16 +55,16 @@
         class="textarea textarea-ghost py-4 pt-2 mt-2 resize-none w-full flex-grow text-base"
         v-model="modalContent.content"
       ></textarea>
-      <div class="modal-action">
+      <!-- <div class="modal-action">
         <label for="card-modal" class="btn">Yay!</label>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import _ from "lodash";
-import Swiper from "swiper";
+// import Hammer from "hammerjs";
 
 export default {
   components: "Card",
@@ -109,23 +108,6 @@ export default {
     cancelChange(e) {
       this.isCheck = false;
     },
-  },
-  mounted() {
-    this.$nextTick(function () {
-      let that = this;
-      console.log("我到这里了");
-      // 仅在整个视图都被渲染之后才会运行的代码
-      new Swiper(".card", {
-        // 移动端事件适配
-        on: {
-          doubleTap(swiper, e) {
-            alert('hello')
-            console.log(that)
-            that.$emit("dblclick");
-          },
-        },
-      });
-    });
   },
 };
 </script>

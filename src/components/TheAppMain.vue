@@ -13,7 +13,7 @@
         </ul>
       </div>
       <div>
-        <label for="my-modal" class="btn btn-ghost btn-circle modal-button">
+        <label for="addModal" class="btn btn-ghost btn-circle modal-button">
           <svg
             class="w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
