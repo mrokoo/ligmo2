@@ -45,7 +45,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => { // 路由守卫，如果不存在token则跳转至登入页。
   //打印来的路径和去的路径
   console.log(to.path + "  from:" + from.fullPath)
   //对于登录页面不拦截
